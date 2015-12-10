@@ -65,3 +65,14 @@ cylinder r h =
     let side = 2*pi*r*h
         top = pi*r^2
     in side + 2 * top
+
+calcBmis' :: [(Double, Double)] -> [Double]
+calcBmis' xs = [bmi | (w,h) <- xs, let bmi = w/h^2, bmi > 25.0]
+
+describeList :: [a] -> String
+describeList ls = "The list is " ++ case ls of [] -> "empty."
+                                               [x] -> "a singleton."
+                                               xs -> "a longer list."
+
+
+
