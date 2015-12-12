@@ -35,7 +35,7 @@ myCompare x y
 bmiTell :: Double -> Double -> String
 bmiTell weight height
     | bmi <= skinny = "You're still underwieght, eat stuff!"
-    | bmi <= normal = "Looking good!"
+    | bmi <= normal = "Looking good! You're normal."
     | bmi <= overweight = "Getting a little heavy, you're overweight."
     | otherwise = "Go see a doctor. You're obese."
     where bmi = weight / height^2
