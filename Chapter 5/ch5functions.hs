@@ -79,3 +79,15 @@ filter' p = foldr (\x acc -> if p x then x : acc else acc) []
 
 last' :: [a] -> a
 last' = foldl1 (\_ x -> x)
+
+and' :: [Bool] -> Bool
+and' = foldr (&&) True
+
+sqrtSums :: Int
+sqrtSums = length (takeWhile (<1000) (scanl1 (+) (map sqrt [1..] ) ) ) + 1
+
+sum'' :: (Num a) => [a] -> a 
+sum'' = foldl (+) 0
+
+oddSquareSum :: Integer
+oddSquareSum = sum . takeWhile (<10000) . filter odd $ map (^2) [1..]
