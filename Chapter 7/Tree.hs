@@ -1,4 +1,15 @@
+module Tree
+( Tree(EmptyTree, Node)
+, singleton
+, treeInsert
+, treeElem
+) where
+
 data Tree a = EmptyTree | Node a (Tree a) (Tree a) deriving (Show)
+
+instance Functor Tree where
+    fmap f EmptyTree = EmptyTree
+    fmap f (Node x left right) = Node (f x) (fmap f left) (fmap f right)
 
 singleton :: a -> Tree a
 singleton x = Node x EmptyTree EmptyTree
@@ -16,4 +27,3 @@ treeElem x (Node a left right)
     | x == a = True
     | x < a  = treeElem x left
     | x > a  = treeElem x right
-
