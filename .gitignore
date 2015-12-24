@@ -1,3 +1,8 @@
+# Haskell build products
+*.exe
+*.o
+*.hi
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
