@@ -16,8 +16,10 @@ doesntExist command _ =
     putStrLn $ "The " ++ command ++ " command doesn't exist."
 
 main = do
-    (command:argList) <- getArgs
-    dispatch command argList
+    contents <- getArgs
+    if length contents >= 2
+        then dispatch (head contents) (tail contents)
+        else putStrLn "A command and arguments must be supplied."
 
 add :: [String] -> IO ()
 add [fileName, todoItem] = appendFile fileName (todoItem ++ "\n")
